@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="index-slide" id="index-slide">
+    <ul>
+        <!--{foreach from=$index_ad_w item=index_ad}-->
+      <li>
+        <a target="_blank" href="{$index_ad.url}" ><img src="{$index_ad.src}" /></a>
+       </li>
+          <!--{/foreach}--> 
+    </ul>
+    <div class="trigger-box">
+      <div class="triggers">
+        <!--{foreach from=$index_ad_w item=index_ad name=foo}-->
+      <a href="javascript:;" {if $smarty.foreach.foo.first}class="current"{/if}></a>
+      <!--{/foreach}-->
+      </div>
+    </div>
+</div>

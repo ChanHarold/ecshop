@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="index.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<style>
+	.main_cata{ display:block !important; opacity:1 !important; filter:alpha(opacity=100) !important;}
+</style>
+<script>
+	
+
+	
+</script>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> {insert_scripts files='lizi_index.js'}
+
+<!--Banner切换--> 
+<div class="index-banner">
+    <div class="index_banner">
+   		<div class="goods_new"><!-- #BeginLibraryItem "/library/recommend_new.lbi" --><!-- #EndLibraryItem --></div>
+    	<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem --> 
+    </div>
+</div>
+
+ <div class="main" style="margin-top:30px;">
+ 	<!-- #BeginLibraryItem "/library/recommend_hot.lbi" --><!-- #EndLibraryItem -->
+    <div class="floors"> <!-- TemplateBeginEditable name="一楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">Show More>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="二楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="三楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="四楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="五楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="六楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+<div class="floors"> <!-- TemplateBeginEditable name="七楼" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+
+
+ </div>
+ <!-- #BeginLibraryItem "/library/page_footer.lbi" --> <!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/left_nav.lbi" --> <!-- #EndLibraryItem -->
+</body>
+</html>

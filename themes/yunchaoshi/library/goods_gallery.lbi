@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="detail_img" id="detail_img">
+  <div class="pic_view"> <a href="{$pictures.0.img_url}" class="MagicZoomPlus" id="Zoomer" rel="hint-text: ; selectors-effect: false; selectors-class: current; zoom-distance: 10;zoom-width: 400; zoom-height: 400;" onclick="window.open('gallery.php?id={$goods.goods_id}'); return false;"> <img  alt="{$goods.goods_name|escape:html}" src="{$goods.goods_img}"> </a> </div>
+  <div class="item-thumbs" id="item-thumbs">
+  <a class="prev" href="javascript:void(0);"></a>
+  <a class="next" href="javascript:void(0);"></a>
+  <div class="bd">
+    <ul class="cle">
+      <!-- {if $pictures}--> 
+      <!-- {foreach from=$pictures item=picture name=foo}-->
+      <li <!-- {if $smarty.foreach.foo.first}-->class="current"<!-- {/if}-->> <a href="{if $picture.img_url}{$picture.img_url}{else}{$picture.thumb_url}{/if}" rel="zoom-id: Zoomer" rev="{if $picture.img_url}{$picture.img_url}{else}{$picture.thumb_url}{/if}"> <img alt="{$goods.goods_name}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}"> </a></li>
+      <!--{/foreach}--> 
+      <!-- {/if}-->
+      
+    </ul>
+    </div>
+  
+  </div>
+</div>

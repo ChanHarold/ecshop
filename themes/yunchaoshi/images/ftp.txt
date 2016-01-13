@@ -1,0 +1,28 @@
+FTP
+ftp IP: 222.73.219.19
+ftp Port: 20071
+用户名: yeeflower 
+密码：yeeflower008er
+
+后台
+flowermg
+hkyee888
+
+
+数据库
+数据名: cbother_flower 
+数据库账号:cbother_flower
+数据库密码: SD336wrP9zGedb4s
+数据库全局账号:root
+数据库全局密码: 7aKeuC9sT84eNbB5
+
+
+服务器远程桌面地址:  222.73.219.19:20070
+管理账号:  xcloud   
+管理密码:  Xcloud2070
+
+http://xjee.net
+登录邮件: 492729013@qq.com
+登录密码: zfrExDDtYS
+
+

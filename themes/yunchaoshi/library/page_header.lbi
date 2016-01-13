@@ -1,0 +1,126 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='transport_jquery.js,utils.js,jquery.SuperSlide.js,lizi_common.js'}
+
+<div class="cart_result"><i></i><a href="flow.php">商品已经加入购物车</a></div>
+<div id="header" class="new_header">
+  <div class="hd_bar">
+    <div class="bd_bar_bd cle">
+      <ul class="welcome">
+        
+		<li id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}</li>
+      </ul>
+      <ul id="userinfo-bar">
+      	
+      	<li><a id="favorite_wb" href="javascript:;" rel="nofollow"><i></i>收藏本站</a></li>
+        <li class="more-menu" id="header_guanzhu"><a class="menu-link" href="javascript:;">关注我们：</a><i class="iconfont arrow">&#8193;</i>
+          <div class="more-bd">
+            <div class="list">
+              <p><a href="http://weibo.com/" target="_blank" class="weibo"><img src="images/weibo.png" /></a></p>
+            </div>
+          </div>
+        </li>
+        <li><a href="article.php?id=4">帮助中心</a></li>
+         <!--{if $navigator_list.top}-->
+         	 <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+           <li id="topNav" class="clearfix">
+           
+                    <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+                    
+            
+           </li>
+           <!-- {/foreach} -->
+  		 <!-- {/if} -->
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+  <div class="hd_main cle">
+    <div class="logo">
+      <p> <a href="./index.php" class="lizi_logo">云超市</a> </p>
+    </div>
+    <div class="search_box">
+      <form action="search.php" method="get" id="searchForm" name="searchForm" onSubmit="return checkSearchForm()" class="clearfix">
+        <input class="sea_input" type="text" name="keywords" id="keyword" value="{$search_keywords|escape}" autocomplete="off">
+        <input type="hidden" value="k1" name="dataBi">
+        <button type="submit" class="sea_submit"></button>
+      </form>
+       {if $searchkeywords}
+    <div class="head_search_hot">{foreach from=$searchkeywords item=val} <a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a> {/foreach} </div>
+    {/if}
+    </div>
+    
+    <div class="hd_cart" id="ECS_CARTINFO"> 
+         {insert name='cart_info'}
+      </div>
+   
+  </div>
+  <div class="hd_nav">
+    <div class="hd_nav_bd cle">
+      <div class="main_nav" id="main_nav">
+        <div class="main_nav_link"> <a href="javascript:;">全部商品分类</a> <i><img src="images/arrow.png" /></i> </div>
+        <div class="main_cata" id="J_mainCata" style="opacity: 0; display: none;">
+          <ul>
+            <!--{foreach from=$categories item=cat name=foo}-->
+            <li {if $smarty.foreach.foo.first}class="first"{/if}>
+              <h3><a target="_blank" href="{$cat.url}">{$cat.name|escape:html}</a></h3>
+              
+            </li>
+            <!--{/foreach}-->
+            
+          </ul>
+        </div>
+       
+     
+        <div class="J_subCata" id="J_subCata" style="opacity: 0; left: 100px; top: 35px;">
+          <!--{foreach from=$categories item=cat}-->
+
+          <div class="J_subView" style="display: none;">
+          <i><img src="images/arrow_2.png" /></i>
+          <!--{foreach from=$cat.cat_id item=child}--> 
+          	
+            <dl>
+              <dt><a href="{$child.url}" target="_blank">{$child.name|escape:html}</a></dt>
+              
+            </dl>
+              <!--{/foreach}--> 
+            
+          </div>
+          <!--{/foreach}-->
+        </div>
+      
+        
+                
+
+      </div>
+      <ul class="sub_nav cle" id="sub_nav">
+        <li{if $navigator_list.config.index eq 1} class="current"{/if}><a href="../index.php" rel="nofollow">{$lang.home}</a>
+        </li>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} --> 
+        <li{if $nav.active eq 1} class="current"{/if}><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} rel="nofollow">{$nav.name}</a>
+        </li>
+        <!-- {/foreach} -->
+      </ul>
+      
+    </div>
+  </div>
+  <div class="search_result"></div>
+</div>

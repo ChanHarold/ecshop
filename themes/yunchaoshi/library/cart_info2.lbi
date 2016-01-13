@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<a href="flow.php" class="a"></a>
+    	<i>{$number}</i>
+    	<div class="shop_wrap" id="shop_wrap">
+        	<!--{if $cart_list}-->
+        	<div class="goods_wrap">
+            	<!--{foreach from=$cart_list item=goods}-->
+            	<dl>
+                	<dt><a href="{$goods.url}"><img src="{$goods.thumb}" /></a></dt>
+                    <dd class="name"><a href="{$goods.url}">{$goods.short_name}</a></dd>
+                    <dd class="price"><p><span>{$goods.shop_price}</span>x<font>{$goods.goods_number}</font></p><a href="javascript:deleteCartGoods({$goods.rec_id});deleteCartGoods2({$goods.rec_id});">删除</a></dd>
+                </dl>
+                <!--{/foreach}-->
+             
+            </div>
+            <div class="attr">
+            	<dl>
+                	<dt>共<span>{$number}</span>件商品</dt>
+                    <dd>总计：<span>{$amount}</span></dd>
+                </dl>
+                <div><a href="flow.php" class="btns">去购物车结算</a></div>
+            </div>
+            <!-- {else} -->
+            	<div class="no_shopping"><p>购物车中还没有商品，赶紧选购吧！</p></div>
+            <!-- {/if} -->
+        </div>
+
+<script type="text/javascript">
+function deleteCartGoods2(rec_id)
+{
+	Ajax.call('delete_cart_goods2.php', 'id='+rec_id, deleteCartGoodsResponse2, 'POST', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse2(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+	  $("#ECS_CARTINFO2").html(res.content);
+  }
+}
+</script> 

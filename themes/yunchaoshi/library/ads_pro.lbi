@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $pName eq 'displayW'}
+<div class="aside"> <a class="s-link" target="_blank" href="{$ad.ad_link}"></a>
+  <h3>{$ad.link_man}</h3>
+  <div class="s-ext"><b>{$ad.link_email}</b></div>
+</div>
+<a class="s-img" target="_blank" href="{$ad.ad_link}"> <img src="{$src}" width="{$ad.ad_width}" height="{$ad.ad_height}"> </a>
+{else}
+
+<a target="_blank" href="{$ad.ad_link}"> <img src="{$src}" width="{$ad.ad_width}" height="{$ad.ad_height}"/> </a> 
+{/if}

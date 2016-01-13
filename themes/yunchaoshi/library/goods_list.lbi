@@ -1,0 +1,68 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="sort">
+  <div class="bd">
+    <form method="GET" name="listform">
+      <a title="销量" href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sales_volume&order=<!-- {if $pager.sort == 'sales_volume' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" <!-- {if $pager.sort == 'sales_volume'} -->class="curr"<!-- {/if} --> rel="nofollow"><span class="<!-- {if $pager.sort == 'sales_volume'} -->search_{$pager.order}<!-- {/if} -->">销量</span></a> <a title="价格" href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list" <!-- {if $pager.sort == 'shop_price'} -->class="curr"<!-- {/if} --> rel="nofollow"><span class="<!-- {if $pager.sort == 'shop_price'} -->search_{$pager.order}<!-- {/if} -->">价格</span></a> <a title="上架时间" href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" <!-- {if $pager.sort == 'goods_id'} -->class="curr"<!-- {/if} -->rel="nofollow"><span class="<!-- {if $pager.sort == 'goods_id'} -->search_{$pager.order}<!-- {/if} -->">上架时间</span></a>
+      <input type="hidden" name="category" value="{$category}" />
+      <input type="hidden" name="display" value="{$pager.display}" id="display" />
+      <input type="hidden" name="brand" value="{$brand_id}" />
+      <input type="hidden" name="price_min" value="{$price_min}" />
+      <input type="hidden" name="price_max" value="{$price_max}" />
+      <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+      <input type="hidden" name="page" value="{$pager.page}" />
+      <input type="hidden" name="sort" value="{$pager.sort}" />
+      <input type="hidden" name="order" value="{$pager.order}" />
+    </form>
+  </div>
+  <div class="search_num">共<b>{$pager.record_count}</b>个商品 <span id="search_btn" class="search_btn"><a <!-- {if $pager.page_prev} -->href="{$pager.page_prev}"<!--{else}-->href="javascript:void(0);"<!-- {/if} --> class="iconfont"></a> <span> 
+    <!--{foreach from=$pager.page_number key=key item=item}--><!-- {if $pager.page eq $key} --><em>{$key}</em><!-- {/if} --><!--{/foreach}-->/{$pager.page_count} </span> <a <!-- {if $pager.page_next} -->href="{$pager.page_next}"<!--{else}-->href="javascript:void(0);"<!-- {/if} --> class="iconfont"></a> </span> </div>
+</div>
+<div class="productlist">
+  <ul class="cle">
+    
+    <!--{foreach from=$goods_list item=goods}--> 
+    <!-- {if $goods.goods_id} -->
+    <li> 
+    	<dl>
+    	<dt><a href="{$goods.url}" target="_blank" class="productitem"> <span class="productimg"> <img width="150" height="150" title="{$goods.goods_name}" alt="{$goods.goods_name}" src="{$goods.goods_thumb}" style="display: block;"> </span>
+    <span class="productname">{$goods.goods_name}</span> <span class="nalaprice xszk"><b> 
+      <!--{if $goods.promote_price neq "" } -->{$goods.promote_price} <!--{else}-->{$goods.shop_price}<!--{/if}--> 
+      </b></span></a> </dt><dd><a onclick="addToCart({$goods.goods_id},this)" class="btns" target="_blank" rel="nofollow">加入购物车</a></dd>
+      </dl> </li>
+    
+    <!--{/if}--> 
+    <!--{/foreach}--> 
+    <!--{if $pager.page neq $pager.page_count}-->
+    <li> <a id="nextpage" class="nextpage" href="{$pager.page_next}"><i></i></a> </li>
+    <!--{/if}-->
+  </ul>
+  <br clear="all">
+</div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script> 
+<script type="text/javascript">
+window.onload = function()
+{
+  Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

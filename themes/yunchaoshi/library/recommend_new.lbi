@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $new_goods} -->
+<div class="title_new">新品推荐</div>
+<div class="goods_new2" id="goods_new">
+	<ul>
+  <!--{foreach from=$new_goods item=goods}-->
+  		<li>
+        	<dl>
+            	<dt><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a></dt>
+                <dd class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></dd>
+                <dd class="price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}--></dd>
+          		<dd class="buys"><a onclick="addToCart({$goods.id},this);" class="btns">加入购物车</a></dd>
+            </dl>
+        </li>
+  <!--{/foreach}-->
+  	</ul>
+  
+</div>
+<!-- {/if} -->
+
+<script>
+	$(function(){
+		function Scroll2(id,l,r,auto){
+			this.id=$("#"+id);
+			this.ul=this.id.find("ul");
+			this.li=this.ul.find("li");
+			this.done=true;
+			var _this=this;
+			this.init.apply(this,arguments);
+			
+		}
+		
+		Scroll2.prototype={
+			init:function(){
+				this.ul.css("width",this.li.outerWidth()*this.li.length);
+				this.event();
+				this.auto();
+			},
+			auto:function(){
+				var me=this;
+				this.timer=null;
+				this.timer=setInterval(function(){
+					me.ul.animate({left:-me.li.outerWidth()},"fast",function(){
+						me.ul=me.id.find("ul");
+						me.li=me.id.find("li");
+						me.ul.append(me.li.eq(0));
+						me.ul.css("left",0);
+					});
+				},5000);
+				
+			},
+			event:function(){
+				var self=this;
+				this.id.hover(function(){
+					clearInterval(self.timer);
+				},function(){
+					self.auto();
+				});
+			}
+		}
+		new Scroll2("goods_new");
+	});
+</script>

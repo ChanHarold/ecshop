@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="clearfix">
+	<div class="hot_left">{insert name="ads" num=1 id=3}</div>
+    <div class="hot_right">
+    	<!-- {if $hot_goods} -->
+    	<div class="clearfix">
+        	<!--{foreach from=$hot_goods item=goods}-->
+        	<dl>
+            	<dt><a href="{$goods.url}" target="_blank"><img height="230" width="230" alt="{$goods.name|escape:html}" src="{$goods.thumb}"></a></dt>
+                <dd>
+                	<p class="name"><a href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></p>
+                    <p class="price"><span><!-- {if $goods.promote_price neq ""} --> 
+          {$goods.promote_price} 
+          <!-- {else}--> 
+          {$goods.shop_price} 
+          <!--{/if}--></span><del>{$goods.market_price}</del></p>
+          			<p class="adds"><a onclick="addToCart({$goods.id},this);" class="btns">加入购物车</a></p>
+                </dd>
+            </dl>
+            <!--{/foreach}--> 
+        </div>
+        <!-- {/if} --> 
+    </div>
+    
+</div>
+<div class="hot_ads">{insert name="ads" num=1 id=4}</div>
+

@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='transport_jquery.js,utils.js,jquery.SuperSlide.js,lizi_common.js'}
+<div id="header">
+    <div class="hd_bar" id="userinfo-bar">
+        <div class="bd">
+            <div class="logo"><a href="index.php">{$shop_name}</a></div>
+            <div class="hd_lbar" style="display: block;" id="ECS_MEMBERZONE">
+               {* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info2'}
+            </div>
+            <ul class="hd-step">
+                
+                    <li class="first on"><em>1</em>我的购物车<i></i></li>
+                    <li class="jt">&nbsp;</li>
+                    <li><em>2</em>确认订单信息<i></i></li>
+                    <li class="jt">&nbsp;</li>
+                    <li class="last"><em>3</em>成功提交订单<i></i></li>
+                
+
+            </ul>
+        </div>
+    </div>
+</div>

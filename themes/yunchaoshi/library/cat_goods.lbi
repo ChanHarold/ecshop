@@ -1,0 +1,64 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="floors2">
+	<p class="mores"><a href="{$goods_cat.url}">查看更多>></a></p>
+    <div class="clearfix floor_wrap">
+    	<div class="f_left">
+        	<div class="ads_pos">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品左广告'}</div>
+            <div class="cat_name">
+            	<div class="cat_name_floor">
+                	<dl>
+                    	<dt><b><font class="font"></font>F</b></dt>
+                        <dd>{$goods_cat.name}</dd>
+                    </dl>
+                </div>
+                <div class="cat_name_floor2">
+                	<ul>
+                    	<!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+                    	<li><a href="javascript:void(0);">{$cat.name}</a></li>
+                        <!--{/foreach}--> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f_right">
+        	<div>
+            	<!--{foreach from=$goods_cat.goods_level2 item=cat name=foo}-->
+                
+                <div class="clearfix cat_goods">
+					<!--{foreach from=$cat.goods item=children name=goods}-->
+                    <div class="f_goods">
+                        <dl>
+                            <dt><a href="{$children.url}"><img src="{$children.goods_img}" /></a></dt>
+                            <dd class="name">{$children.goods_name}</dd>
+                            <dd class="price">
+                                <span><!--{if $goods.promote_price neq ""}-->{$children.promote_price}<!--{else}-->                                {$children.shop_price}<!--{/if}--></span><del>{$children.market_price}</del>
+                            </dd>
+                            <dd><a onclick="addToCart({$children.goods_id},this)" class="btns">加入购物车</a></dd>
+                        </dl>
+                    </div>
+                    <!--{/foreach}-->
+                </div>
+                 <!--{/foreach}--> 
+            </div>
+        </div>
+    </div>
+    <div class="cat_bottom">{insert name='ads_pro' cat_name=$goods_cat.name type='分类下商品下方广告'}</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

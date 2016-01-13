@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="category.css" rel="stylesheet" type="text/css" />
+<style>
+	.productlist{ width:auto;}
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='utils.js,common.js,global.js,compare.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> {insert_scripts files='lizi_category.js'}
+<div id="wrapper"> 
+  <!-- 页面主体部分开始 --> 
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="main cle"> 
+    <!-- 左侧栏 开始 -->
+	<div class="search_goods">      
+       <!-- {if $goods_list} -->
+    <div class="sort">
+  <div class="bd">
+        <!-- {if $intromode eq 'best'} -->
+         <span>{$lang.best_goods}</span>
+         <!-- {elseif $intromode eq 'new'} -->
+         <span>{$lang.new_goods}</span>
+         <!-- {elseif $intromode eq 'hot'} -->
+         <span>{$lang.hot_goods}</span>
+         <!-- {elseif $intromode eq 'promotion'} -->
+         <span>{$lang.promotion_goods}</span>
+         <!-- {else} -->
+         <span>{$lang.search_result}</span>
+         <!-- {/if} -->
+         
+          <!--{if $goods_list}-->
+          <form action="search.php" method="post" name="listform" id="form" style="padding-left:10px; padding-top:5px; position:relative;">
+              <select name="sort">
+              {html_options options=$lang.sort selected=$pager.search.sort}
+              </select>
+              <select name="order">
+              {html_options options=$lang.order selected=$pager.search.order}
+              </select>
+              <input type="image" name="imageField" src="../images/bnt_go.gif" alt="go" style="position:absolute; top:5px; left:175px;"/>
+              <input type="hidden" name="page" value="{$pager.page}" />
+              <input type="hidden" name="display" value="{$pager.display}" id="display" />
+              <!--{foreach from=$pager.search key=key item=item}-->
+              {if $key neq "sort" and $key neq "order"}
+                {if $key eq 'keywords'}
+                  <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+                {else}
+                  <input type="hidden" name="{$key}" value="{$item}" />
+                {/if}
+              {/if}
+              <!--{/foreach}-->
+            </form>
+          <!--{/if}-->
+  </div>
+  <div class="search_num">共<b>{$pager.record_count}</b>个商品 <span class="search_btn" id="search_btn"><a <!-- {if $pager.page_prev} -->href="{$pager.page_prev}"<!--{else}-->href="javascript:void(0);"<!-- {/if} --> class="iconfont"></a> <span> 
+    <!--{foreach from=$pager.page_number key=key item=item}--><!-- {if $pager.page eq $key} --><em>{$key}</em><!-- {/if} --><!--{/foreach}-->/{$pager.page_count} </span> <a <!-- {if $pager.page_next} -->href="{$pager.page_next}"<!--{else}-->href="javascript:void(0);"<!-- {/if} --> class="iconfont"></a> </span> </div>
+</div>
+    <div class="productlist productlist2">
+        <ul class="cle">    
+          <!--{foreach name=goods_list from=$goods_list item=goods}-->
+          <!-- {if $goods.goods_id} -->
+          <li><dl><dt> <a href="{$goods.url}" target="_blank" class="productitem"> <span class="productimg"> <img width="250" height="250" title="{$goods.goods_name}" alt="{$goods.goods_name}" src="{$goods.goods_thumb}" style="display: block;"> </span>
+    <span class="productname">{$goods.goods_name}</span> <span class="nalaprice xszk"><b> 
+      <!--{if $goods.promote_price neq "" } -->{$goods.promote_price} <!--{else}-->{$goods.shop_price}<!--{/if}--> 
+      </b></span></a></dt> <dd><a onclick="addToCart({$goods.goods_id},this)" class="btns" target="_blank" rel="nofollow">加入购物车</a></dd> </dl></li>
+          <!--{/if}-->
+          <!--{/foreach}--> 
+          
+        
+        </ul>
+        <br clear="all">
+      </div>
+      
+        <script type="text/javascript">
+        {foreach from=$lang.compare_js item=item key=key}
+        var {$key} = "{$item}";
+        {/foreach}
+
+        {foreach from=$lang.compare_js item=item key=key}
+        {if $key neq 'button_compare'}
+        var {$key} = "{$item}";
+        {else}
+        var button_compare = '';
+        {/if}
+        {/foreach}
+
+
+        var compare_no_goods = "{$lang.compare_no_goods}";
+        window.onload = function()
+        {
+          Compare.init();
+          fixpng();
+        }
+        var btn_buy = "{$lang.btn_buy}";
+        var is_cancel = "{$lang.is_cancel}";
+        var select_spe = "{$lang.select_spe}";
+        </script>
+        <!--{else}-->
+        <div style="padding:20px 0px; text-align:center">{$lang.no_search_result}</div>
+        <!--{/if}-->
+      <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+  </div>
+  <!-- 页面主体部分结束 --> 
+  
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

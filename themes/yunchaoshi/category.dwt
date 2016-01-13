@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="category.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body class="gray_bg">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> {insert_scripts files='lizi_category.js'}
+<div id="wrapper"> 
+  <!-- 页面主体部分开始 --> 
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="main cle">
+    <div class="zhss">
+    	<div class="zhss2">
+    	<!--组合搜索 开始--> 
+      <div class="search-options" id="search-options">
+        <div class="bd">
+        	 
+              {if $categories2}
+            <dl>
+            	<dt>分类</dt>
+                  <dd>
+                    <div class="items cle">
+                         <!--{foreach from=$categories2 item=cat}-->
+                        <div class="link"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+                        <!--{/foreach}--> 
+                    </div>
+                  </dd>
+            </dl>
+            
+             {/if} 
+              
+         <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+           <!--{if $brands.1 && !$brand_id}-->
+          <dl>
+            <dt>{$lang.brand}</dt>
+            <dd>
+              <div class="items cle"> 
+                <!--{foreach from=$brands item=brand key=key}-->
+                <!--{if $key > 0}-->
+                <div class="link"> <a href="{$brand.url}" class="item">{$brand.brand_name}</a> </div>
+                <!--{/if}-->
+                <!--{/foreach}--> 
+              </div>
+              <a class="more-btn" href="javascript:;">更多</a> </dd>
+          </dl>
+          <!--{/if}--> 
+          
+          <!--{foreach from=$filter_attr_list item=filter_attr}-->
+
+          <!-- {if !$filter_attr.selected} -->
+          <dl>
+            <dt>{$filter_attr.filter_attr_name|escape:html}</dt>
+            <dd>
+              <div class="items cle"> 
+                <!--{foreach from=$filter_attr.attr_list item=attr key=key}-->
+                 <!-- {if $key > 0} --> 
+                <div class="link"> <a href="{$attr.url}" class="item">{$attr.attr_value}</a> </div>
+          		 <!--{/if}-->
+                <!--{/foreach}--> 
+              </div>
+              <a class="more-btn" href="javascript:;">更多</a> </dd>
+          </dl>
+           <!--{/if}-->
+          <!--{/foreach}-->
+          
+          <!--{if $price_grade.1 && !$price_min && !$price_max}-->
+          <dl>
+            <dt>{$lang.price}</dt>
+            <dd class="dd-price">
+              <div class="items cle w800"> 
+                <!--{foreach from=$price_grade item=grade key=key}-->
+                  <!--{if $key > 0}-->
+                <div class="link"> <a href="{$grade.url}" class="item">{$grade.price_range}</a> </div>
+                <!--{/if}-->
+                <!--{/foreach}--> 
+              </div>
+              <div class="priceform" id="priceform">
+                <div class="form-bg">
+                  <form action="{$price_grade.0.url}" method="post" id="freepriceform" >
+                    <span class="rmb"></span>
+                    <input type="text" value="" name="price_min" id="pricemin">
+                    <span class="rmb rmb2"></span>
+                    <input type="text" value="" name="price_max" id="pricemax">
+                    <p>
+                      <input type="submit" value="确定" onclick="return makeUri();" class="submit">
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <!--{/if}--> 
+           <!-- {/if} --> 
+        </div>
+      </div>
+     
+      <!--组合搜索 结束--> 
+      </div>
+    </div>
+    <div class="cle clearfixs">
+    <!-- 左侧栏 开始 -->
+    <div class="sidebar">
+      <!-- #BeginLibraryItem "/library/top10_category.lbi" --><!-- #EndLibraryItem -->
+     </div>
+    <div class="maincon"> 
+      
+      <!--{if $brand_id || (($price_max > $price_min) && $price_max > 0) || $price_max || $filter_attr_sum > 0}-->
+      <div class="search-selected"> <span>您已选择：</span> 
+		<!--{if  $filter_attr_sum > 0}--> 
+            <!--{foreach from=$filter_attr_list item=filter_attr}--> 
+                <!--{foreach from=$filter_attr.attr_list item=attr key=key}-->
+                <!-- {if $attr.selected && $key > 0} --> 
+                 <a href="{$attr.del_url}" class="item">{$attr.attr_value}</a> 
+                <!-- {/if} --> 
+                <!--{/foreach}-->
+            <!--{/foreach}--> 
+		<!--{/if}--> 
+        
+        <!--{if $brands.1}-->
+        <!--{foreach from=$brands item=brand key=key}--> 
+        <!-- {if $brand.selected && $key > 0} --> 
+        <a href="{$brands.0.url}" class="item">{$brand.brand_name}</a> 
+        <!-- {/if} --> 
+        <!--{/foreach}--> 
+        <!--{/if}--> 
+
+		<!--{if ($price_max > $price_min) && $price_max > 0}-->
+        <a href="{$price_grade.0.url}" class="item">{$price_min}&nbsp;-&nbsp;{$price_max}</a> 
+		<!--{/if}-->
+      </div>
+      <!--{/if}--> 
+      
+      
+      <script type="text/javascript">
+
+    function makeUri() {
+        // 开始价格 pricemin
+        var v1 = document.getElementById("pricemin").value;
+        // 截止价格 pricemax
+        var v2 = document.getElementById("pricemax").value;
+        if(v1 == '' || v2 == '' || !$.isNumeric(v1) || !$.isNumeric(v2) || parseInt(v1) > parseInt(v2)){
+            alert('请输入正确的价格区间');
+			return false;
+        }
+    }
+
+</script> 
+      <!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+      </div>
+  </div>
+  <!-- 页面主体部分结束 --> 
+  
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

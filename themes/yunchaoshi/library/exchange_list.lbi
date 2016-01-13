@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<form name="compareForm" method="post">
+
+<div class="productlist">
+  <ul class="cle">
+    
+    <!--{foreach from=$goods_list item=goods}--> 
+    <!-- {if $goods.goods_id} -->
+    <li> <a href="{$goods.url}" target="_blank" class="productitem"> <span class="productimg"> <img width="150" height="150" title="{$goods.goods_name}" alt="{$goods.goods_name}" src="{$goods.goods_thumb}" style="display: block;"> </span> <span class="nalaprice xszk"><b> 
+    {$lang.exchange_integral}{$goods.exchange_integral}
+      
+      </b> </span> <span class="productname">{$goods.goods_name}</span> <span class="description">{$goods.goods_brief}</span> <span class="price"> 专柜价：{$goods.market_price} </span> <span class="salerow"> 销量：<span class="sales">{$goods.sales_volume}</span>件 </span> </a> <a href="javascript:addToCart({$goods.goods_id})" class="addcart" target="_blank" rel="nofollow">加入购物车</a> </li>
+    
+    <!--{/if}--> 
+    <!--{/foreach}--> 
+    <!--{if $pager.page_count neq 1}-->
+    <li> <a id="nextpage" class="nextpage" href="{$pager.page_next}"><i></i></a> </li>
+    <!--{/if}-->
+  </ul>
+  <br clear="all">
+</div>
+
+
+  
+</form>
+<script type="text/javascript">
+  window.onload = function()
+  {
+    Compare.init();
+    fixpng();
+  }
+  var button_compare = '';
+</script>

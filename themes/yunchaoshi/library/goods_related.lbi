@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+ <div class="onlyPageX">
+    <h3>相关商品</h3>
+    <ul class="clearfix">
+     <!--{foreach from=$related_goods item=releated_goods_data}-->
+      <li>
+      	<dl>
+        	<dt><a class="track" href="{$releated_goods_data.url}" target="_blank"><img alt="{$releated_goods_data.goods_name}" src="{$releated_goods_data.goods_thumb}" width="224" height="224"></a></dt>
+            <dd class="name"><a class="track" href="{$releated_goods_data.url}" target="_blank">{$releated_goods_data.short_name}</a></dd>
+            <dd class="price">
+            	<span><em><!-- {if $releated_goods_data.promote_price neq 0} -->{$releated_goods_data.formated_promote_price}<!-- {else} -->
+{$releated_goods_data.shop_price}
+<!-- {/if} --></em></span>
+				
+               <a onclick="addToCart({$goods.goods_id},this);" class="btns">加入购物车</a>
+            </dd>
+        </dl>
+      
+        <p></p>
+                
+       </li>  
+         <!--{/foreach}-->
+    </ul>
+</div>
+
+<!-- {/if} -->

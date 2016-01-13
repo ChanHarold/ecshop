@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $brand_list} -->
+ <div class="fixed-want" id="fixed-want">
+    <div class="hd">大牌推荐</div>
+    <div class="bd" style="border-top:0;">
+        
+        
+        <dl class="brand">
+            <dd>
+            	 <!-- {foreach from=$brand_list item=brand name="brand_foreach"} -->
+                <a href="{$brand.url}" target="_blank" rel="nofollow">{$brand.brand_name|escape:html}</a>
+                  <!-- {/foreach} -->
+                <p class="more"><a href="brand.php" target="_blank" rel="nofollow">更多&gt;</a></p>
+            </dd>
+        </dl>
+        </div>
+</div>
+<!-- {/if} -->
+

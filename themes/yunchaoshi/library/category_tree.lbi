@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $script_name eq "category"}
+<dl>
+  <!--{foreach from=$categories item=cat}--> 
+  {if $cat.id eq $category} 
+  <!--{foreach from=$cat.cat_id item=child}-->
+  <dt>{$child.name|escape:html}</dt>
+  <!--{foreach from=$child.cat_id item=childer}-->
+  <dd> <a href="{$childer.url}">{$childer.name|escape:html}</a> </dd>
+  <!--{/foreach}--> 
+  <!--{/foreach}--> 
+  {/if} 
+  <!--{/foreach}-->
+</dl>
+{else}
+<dl>
+  <!--{foreach from=$categories item=cat}--> 
+ 
+  <dt>{$cat.name|escape:html}</dt>
+ <!--{foreach from=$cat.cat_id item=child}-->
+  <dd> <a href="{$child.url}">{$child.name|escape:html}</a> </dd>
+  <!--{/foreach}--> 
+
+  <!--{/foreach}-->
+</dl>
+{/if}

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="goods.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<script type="text/javascript">
+function $id(element)
+{
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str)
+{
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+
+  for(var i=0;i<bt.length;i++)
+  {
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+
+    bt[i].onclick=function()
+    {
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++)
+      {
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+</script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->{insert_scripts files='magiczoomplus.js,lizi_goods.js,easydialog.min.js'}
+<div id="wrapper">
+  <div class="breadcrumbs cle">
+  	<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> 
+  </div>
+  <div class="detail cle"> 
+    <!-- 图片 --> 
+    <!-- #BeginLibraryItem "/library/goods_gallery.lbi" --><!-- #EndLibraryItem -->
+   
+    <!-- 商品 -->
+    <div class="item-info" id="item-info">
+    <dl class="loaded">
+    <!-- 名字 -->
+    <dt class="product_name">
+      <h1>{$goods.goods_style_name}</h1>
+      <p class="desc"> <span class="gray">{$goods.goods_brief}</span> </p>
+    </dt>
+    
+    <!-- 价格——正常时 -->
+    <dd class="property">
+      <ul>
+        
+        <!-- {if $cfg.show_goodssn} 显示商品货号-->
+        <li> <span class="lbl">{$lang.goods_sn}</span> <em>{$goods.goods_sn}</em> </li>
+        <!-- {/if} --> 
+        
+        <!-- {if $cfg.show_goodsweight} 商品重量-->
+        <li> <span class="lbl">{$lang.goods_weight}</span> <em>{$goods.goods_weight}</em> </li>
+        
+        <!-- {/if} --> 
+        
+        <!-- {if $cfg.show_marketprice} 市场价格-->
+        <li> <span class="lbl">{$lang.market_price}</span> <em class="cancel">{$goods.market_price}</em> </li>
+        <!-- {/if} -->
+        
+        <li><span class="lbl">{$lang.exchange_integral}</span> <span class="unit"> <strong class="nala_price red">{$goods.exchange_integral}</strong> </span> </li>
+
+
+          
+        <li><span class="lbl">销&nbsp;&nbsp;&nbsp;量</span><span>最近售出<em class="red">{$goods.sales_volume}</em>件</span></li>
+        
+        
+        
+        
+          
+          
+      </ul>
+    </dd>
+    
+    <!-- 赠品 --> 
+    
+    <!-- 规格 -->
+    
+    <dd class="tobuy-box cle">
+   
+      <ul class="sku">
+      <form action="exchange.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+   
+      <!-- {* 开始循环所有可选属性 *} --> 
+      <!-- {foreach from=$specification item=spec key=spec_key} --> 
+      <!-- {if $spec.attr_type eq 1} -->
+      
+      <li class="sku_box cle" id="sku_box"> <span class="lbl">{$spec.name}</span>
+        <div id="sku_list" class="sku_list cle"> 
+          <!-- {foreach from=$spec.values item=value key=key} --> 
+          <a {if $key eq 0}class="selected"{/if} href="javascript:;">{$value.label}<span class="icon_bg">已选中</span>
+          <input id="spec_value_{$value.id}" style="display:none;" type="radio" name="spec_{$spec_key}" value="{$value.id}" {if $key eq 0}checked{/if} />
+          </a> 
+          <!-- {/foreach} --> 
+          
+        </div>
+      </li>
+      
+      <!-- {else} -->
+      
+      <li class="sku_box cle" id="sku_box"> <span class="lbl">{$spec.name}</span>
+        <div id="sku_list" class="sku_list cle"> 
+          <!-- {foreach from=$spec.values item=value key=key} -->
+          <label for="spec_value_{$value.id}">
+            <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" onclick="changePrice()" />
+            {$value.label} [{if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if} {$value.format_price|abs}] </label>
+          </a> 
+          <!-- {/foreach} -->
+          <input type="hidden" name="spec_list" value="{$key}" />
+        </div>
+      </li>
+      
+      <!-- {/if} --> 
+      <!-- {/foreach} --> 
+      <!-- {* 结束循环可选属性 *} --> 
+      
+      <!-- 购买——正常按钮时  -->
+      <li class="add_cart_li"> <a href="javascript:$('#ECS_FORMBUY').submit();" class="btn" id="buy_btn"><i class="iconfont">ŭ</i>{$lang.exchange_goods}</a> </li>
+      <input type="hidden" name="goods_id" value="{$goods.goods_id}" />
+    </form>
+    </ul>
+    </dd>
+    </dl>
+  </div>
+ 
+  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem --> </div>
+<div class="detail_bgcolor">
+  <div class="z-detail-box cle">
+    <div class="z-detail-left">
+      <div class="tabs_bar_warp">
+        <div class="tabs_bar" id="tabs_bar">
+          <ul>
+            <li class="current_select"> <a class="spxqitem" rel="nofollow" href="javascript:void(0);">商品详情</a> </li>
+            <li class=""><a class="pjxqitem" href="javascript:void(0);" name="pjxqitem" rel="nofollow">评价详情</a></li>
+            <li class="tab-buy" id="tab-buy"><strong>{$goods.exchange_integral}积分</strong><a class="btn" href="javascript:void(0);">兑 换</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="product_tabs">
+        <div class="sectionbox z-box" id="spxqitem">
+          <div class="spxq_main">
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td width="20%" class="th"> 产品名称 :</td>
+                      <td width="80%"> {$goods.goods_name}</td>
+                    </tr>
+                    <!-- {if $goods.goods_brand neq "" and $cfg.show_brand} 显示商品品牌-->
+                    <tr>
+                      <td width="20%" class="th"> 产品品牌 :</td>
+                      <td width="80%"> {$goods.goods_brand}</td>
+                    </tr>
+                    <!--{/if}--> 
+                    
+                    <!-- {foreach from=$properties item=property_group key=key} --> 
+                    
+                    <!-- {foreach from=$property_group item=property} -->
+                    <tr>
+                      <td width="64" class="th"> {$property.name|escape:html}:</td>
+                      <td> {$property.value}</td>
+                    </tr>
+                    <!-- {/foreach}--> 
+                    <!-- {/foreach}-->
+                    
+                  </tbody>
+                </table>
+              </div>
+              <p>&nbsp; </p>
+            </div>
+            <h2 class="tit tit3" style="background:#F7A413;"><span>产品描述</span></h2>
+            <div class="spxq_dec">{$goods.goods_desc}</div>
+          </div>
+        </div>
+        <div class="z-box sectionbox">
+          <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --> </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+<script type="text/javascript">
+<!-- {literal} -->
+onload = function()
+{
+  fixpng();
+}
+<!-- {/literal} -->
+</script>
+</html>

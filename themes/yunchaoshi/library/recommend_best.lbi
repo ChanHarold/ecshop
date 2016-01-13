@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $best_goods} -->
+<!-- {if $script_name eq "index"} -->
+	<div class="temai_box">
+  <h2>今日推荐</h2>
+  <div class="temai_main">
+    <ul class="temai_list cle" id="temai_list">
+     <!--{foreach from=$best_goods item=goods}-->
+      <li class="show"> <a href="{$goods.url}" target="_blank">
+        <p class="pic"> <img src="{$goods.thumb}" style="display: inline;"> </p>
+        <h3>{$goods.short_style_name}</h3>
+        <p class="price"> <span class="bd"><strong><!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}--></strong> </span> <span class="sale"><b>{$goods.market_price}</b></span> <span class="num">销量：<strong>{$goods.sales_volume}</strong></span> </p>
+        </a> </li>
+        <!--{/foreach}-->
+    </ul>
+  </div>
+</div>
+<!-- {/if} --> 
+<!-- {/if} --> 

@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $promotion_goods} -->
+<!--{if $script_name eq 'category_top'}-->
+<div class="mt">
+  <h2>限时抢购</h2>
+</div>
+<div class="mc">
+  <ul>
+    <!--{foreach from=$promotion_goods item=goods name="promotion_foreach"}-->
+    <li>
+      <div class="clock endtime" value="{$goods.end_date}"></div>
+      <div class="p-img"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank"><img width="100" height="100" src="{$goods.thumb}" alt="{$goods.name|escape:html}"></a></div>
+      <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_name|escape:html}</a></div>
+      <div class="p-price"> {$lang.promote_price}<strong>{$goods.promote_price}</strong></div>
+    </li>
+    <!--{/foreach}-->
+    
+  </ul>
+</div>
+<!--{else}-->
+<div class="buy60s_bg">
+  <div class="buy60s_main">
+    <div class="buy60s_head">
+      <p><i class="iconfont">Ɔ</i><a target="_blank" href="../search.php?intro=promotion">抢购商品汇总</a></p>
+    </div>
+    <div class="buy60s_list">
+      <div class="buy60s_box" style="background-image: none; background-position: initial initial; background-repeat: initial initial;">
+        <div class="cle" id="buy60s_silde" style="transition: none 500ms ease; -webkit-transition: none 500ms ease;"> 
+          <!--{foreach from=$promotion_goods item=goods name=promotion_foreach}--> 
+          {if $smarty.foreach.promotion_foreach.iteration mod 3 eq 1}
+          <ul>
+            {/if}
+            <li><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank"><img width="350" height="270" src="{$goods.thumb}"></a>
+              <p class="z_title"><em class="z_hot">爆款</em>{$goods.short_name|escape:html}</p>
+              <p class="z_price cle"><span class="now"><strong>{$goods.promote_price}</strong></span><span class="old">{$lang.shop_price}<br>
+                <s>{$goods.shop_price}</s></span></p>
+              <p class="btn buybtn" onClick="location.href='{$goods.url}'">抢！</p>
+            </li>
+            {if $smarty.foreach.promotion_foreach.iteration mod 3 eq 0}
+          </ul>
+          {/if} 
+          <!--{/foreach}--> 
+          
+        </div>
+      </div>
+      <a href="javascript:;" hidefocus="true" id="buy60s_prve" class="buy60s_prve"><i class="iconfont"></i></a> <a href="javascript:;" hidefocus="true" id="buy60s_next" class="buy60s_next"><i class="iconfont">ǎ</i> </a> </div>
+    
+  </div>
+</div>
+<!--{/if}--> 
+<!-- {/if} -->

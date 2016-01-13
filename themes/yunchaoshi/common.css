@@ -1,0 +1,314 @@
+/*
+Template Name: EC模板堂云超市正版授权模板
+Template URI: http://www.ecmoban.com/
+Description: 买模板请认准模板堂(ecmoban.com) <br/> 24小时客服联系 QQ:264944615
+Version: 2.73
+Author: 进模板堂挑选更多ECSHOP模板
+Author URI: http://www.ecmoban.com/
+Logo filename: logo.gif
+*/
+
+/* ====================
+     公共样式
+==================== */
+#wrapper .box {
+	background: #fff;
+	overflow: hidden;
+}
+#wrapper .box_1 {
+	border: 1px solid #eee;
+	background-color: #fff;
+}
+#wrapper h3 {
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	padding:0 25px;
+	font-weight: 100; background:#FFE0B4;
+}
+#wrapper h3 span {
+	float: left;
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	text-align: left;
+	font-weight: bold;
+	color: #333;
+	padding-left: 0px;
+}
+#wrapper .boxCenterList {
+	padding: 8px;
+}
+#wrapper .boxCenterList ul {
+	height: 1%;
+	margin-bottom: 5px;
+}
+#wrapper .boxCenterList li {
+	float: left;
+	width: 350px;
+}
+#wrapper .group li {
+	float: left;
+	background: #fff;
+	padding: 8px;
+}
+#wrapper .boxCenterList li a {
+	color: #3f3f3f;
+	text-decoration: none;
+}
+#wrapper .f5 {
+	font-size: 14px;
+	font-weight: bold;
+}
+#wrapper th, td {
+	margin: auto;
+	padding: auto
+}
+#wrapper table td {
+	padding: 5px;
+	border: 1px solid #eee;
+	padding: 5px 10px;
+}
+#wrapper table th {
+	padding: 5px;
+	border: 1px solid #eee;
+	padding: 5px 10px;
+}
+#wrapper .blank5 {
+	height: 5px;
+	line-height: 5px;
+	_margin: -3px 0;
+	clear: both;
+	visibility: hidden;
+}
+#wrapper h5 {
+	height: 40px;
+	line-height: 40px;
+	background-color: #FFF;
+	font-size: 18px;
+	color: #333;
+	padding: 0 10px 0 0;
+}
+h5 span {
+	float: left;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 0px;
+}
+.bnt_blue_1, .bnt_blue, .bnt_blue_2 {
+	display: inline-block;
+	padding: 4px 12px;
+	height: 24px;
+	line-height: 16px;
+	_line-height: 18px;
+	border: 1px solid #eb7207;
+	border-radius: 3px;
+	font-size: 100%;
+	color: #fff;
+	background-color: #f70;
+	overflow: hidden;
+	vertical-align: middle;
+	cursor: pointer;
+}
+#brandList {
+	border-left: 1px dashed #f2f2f2;
+	border-bottom: 1px dashed #f2f2f2;
+}
+#brandList .brandBox {
+	border-top: 1px dashed #f2f2f2;
+	border-right: 1px dashed #f2f2f2;
+	float: left;
+	width: 294px;
+	height: 140px;
+}
+#brandList .brandBox .brandLogo {
+	width: 100%;
+	height: 105px;
+	line-height: 120px;
+	font-size: 24px;
+	text-align: center;
+}
+#brandList .brandBox .brandLogo img {
+	width: 240px;
+	height: 120px;
+}
+#brandList .brandBox p {
+	text-align: center;
+}
+.sort {
+	margin-bottom: 10px;
+	height: 30px;
+	margin-top: 10px;
+	border: 1px solid #eee;
+	border-bottom: 2px solid #ccc;
+	padding: 5px 0;
+	background: #fff;
+}
+.sort .bd {
+	float: left;
+	font-size: 0;
+	padding-right: 12px;
+}
+.sort .bd a {
+	display: inline-block;
+	font-size: 12px;
+	margin-right: -1px;
+	position: relative;
+	z-index: 1;
+}
+a.more-btn, .rmb, .search-selected a.item, .sort .bd a span {
+	background: url(images/search-page-bg.png) 0 -9999px no-repeat;
+}
+.sort .bd a span {
+	display: block;
+	padding: 5px 26px 5px 15px;
+	background-position: right -128px;
+}
+.search_num {
+	width: 400px;
+	float: right;
+	text-align: right;
+	line-height: 30px;
+	padding: 0 15px;
+}
+.sort .curr .search_ASC {
+	border: 1px solid #fff;
+	padding: 4px 26px 4px 15px;
+	background-position: right -330px;
+	color: #f70;
+	text-shadow: 1px 1px 1px #fff;
+}
+.search_num b {
+	color: #f70;
+}
+.search_num span.search_btn {
+	margin-left: 10px;
+	font-size: 13px;
+}
+.iconfont {
+	font-family: "lizi";
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.search_num span.search_btn a {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	line-height: 28px;
+	text-align: center;
+	border: 1px solid #e4e4e4;
+	background-color: #fff;
+	margin: 0 5px;
+	color: #999;
+}
+.search_num span.search_btn span {
+	color: #333;
+}
+.search_num span.search_btn span em {
+	color: #f70;
+}
+.search_num span.search_btn a {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	line-height: 28px;
+	text-align: center;
+	border: 1px solid #e4e4e4;
+	background-color: #fff;
+	margin: 0 5px;
+	color: #999;
+}
+.sort .curr .search_DESC {
+	border: 1px solid #fff;
+	padding: 4px 26px 4px 15px;
+	background-position: right -104px;
+	color: #f70;
+	text-shadow: 1px 1px 1px #fff;
+}
+.productlist {
+	width: 100%;
+	overflow: hidden;
+}
+.productlist li {
+	width: 232px;
+	height: 305px;
+	position: relative;
+	float: left;
+	margin: 0 7px 14px 0;
+	overflow: hidden;
+	display: inline;
+}
+.productlist li a.btns{position: absolute;
+right: 10px;
+bottom: 10px;}
+a.productitem {
+	display: block;
+	cursor: pointer;
+	background-color: #fff;
+	padding-bottom: 8px;
+	position: relative;
+	overflow: hidden;
+}
+a.productitem span.productimg {
+	display: block;
+	background: url(images/loading-16.gif) center center no-repeat;
+	margin-bottom: 10px;
+	padding: 0;
+}
+a.productitem span.productimg img {
+	vertical-align: top;
+	display: block;
+}
+.productlist li a.productitem span.productimg img {
+	width: 230px;
+	height: 230px;
+}
+a.productitem span {
+	padding: 0 10px;
+}
+a.addcart {
+	display: none;
+}
+a.productitem span.nalaprice {
+	color: #f70;
+	font-size: 14px;
+	display: block;
+}
+a.productitem span.description {
+	display: block;
+	height: 16px;
+	overflow: hidden;
+	color: #999;
+}
+a.productitem span.price {
+	display: none;
+}
+a.productitem span.salerow {
+	display: block;
+	color: #999;
+}
+a.productitem span.sales {
+	color: #f70;
+	padding: 0 2px;
+}
+.article_search {
+margin: 8px 0;
+}
+.here {
+	color: #bbb; background:white;
+}
+.here3{height:38px; line-height:38px;border:1px solid #dcdcdc;padding-left:10px; font-size:14px;color:#333;}
+.here i.iconfont {
+	font-size:0; line-height:0;
+}
+.here code{padding:0 5px;}
+.here h1 {
+	display: inline;
+	font-size: 12px;
+	color: #333;
+	font-weight: normal
+}

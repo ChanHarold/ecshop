@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="weekRank" class="m rank">
+  <div class="mt">
+    <h2>一周销量排行</h2>
+  </div>
+  <div class="mc">
+    <ul class="tabcon">
+      <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+      <li class="<!-- {if $smarty.foreach.top_goods.iteration<4}-->fore{$smarty.foreach.top_goods.iteration}<!-- {/if} --><!-- {if $smarty.foreach.top_goods.iteration eq 1}--> fore<!-- {/if} -->"><span>{$smarty.foreach.top_goods.iteration}</span>
+        <div class="p-img" style="<!-- {if $smarty.foreach.top_goods.iteration eq 1}-->display: block;<!-- {/if} -->"><a target="_blank" href="{$goods.url}"><img alt="{$goods.name|escape:html}" src="{$goods.thumb}" width="50" height="50"></a></div>
+        <div class="p-name"><a target="_blank" href="{$goods.url}">{$goods.short_name}</a></div>
+        <div class="p-price" style="<!-- {if $smarty.foreach.top_goods.iteration eq 1}-->display: block;<!-- {/if} -->"><strong>{$goods.price}</strong></div>
+      </li>
+      <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>

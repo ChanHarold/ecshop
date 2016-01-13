@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="personalizedRecomments" class="wy_con11Left">
+  <h2>销量排行榜</h2>
+  <div class="wy_top10">
+    <ul class="wytoplist">
+      <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+      <li>
+      	<dl>
+        	<dt><a class="track" target="_blank" href="{$goods.url}"><img style="width:190px; height: 190px; display: inline;" alt="{$goods.name|escape:html}" src="{$goods.thumb}"></a></dt>
+            <dd class="name"><a title="{$goods.name|escape:html}" target="_blank" class="track" href="{$goods.url}">{$goods.short_name}</a></dd>
+            <dd class="price">
+            	<span>{$goods.price}</span><a onclick="addToCart({$goods.goods_id},this)" class="btns">加入购物车</a>
+            </dd>
+        </dl>
+      </li>
+      <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+<div align="center">{insert name="ads" num=1 id=6}</div>

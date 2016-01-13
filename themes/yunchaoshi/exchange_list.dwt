@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="category.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem --> {insert_scripts files='lizi_category.js'}
+<div id="wrapper"> 
+  <!-- 页面主体部分开始 --> 
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <div class="main cle" style="margin-top:10px;"> 
+    <!-- 左侧栏 开始 -->
+    <div class="sidebar">
+      <div class="cate-menu" id="cate-menu">
+        <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem --> </div>
+       <!-- #BeginLibraryItem "/library/brands.lbi" --><!-- #EndLibraryItem --> </div>
+    <div class="maincon"> 
+
+      <!-- #BeginLibraryItem "/library/exchange_list.lbi" --><!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+  </div>
+  <!-- 页面主体部分结束 --> 
+  
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+</body>
+</html>

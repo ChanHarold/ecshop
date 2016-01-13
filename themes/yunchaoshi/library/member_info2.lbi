@@ -1,0 +1,7 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $user_info} 
+<a href="./">{$shop_name}首页</a> <a href="user.php" class="usernav-link"><img src="images/kong.gif"><span>{$user_info.username}</span></a> <a href="user.php?act=logout">退出</a> 
+{else} 
+<a href="./" rel="nofollow">{$shop_name}首页</a> <a href="user.php?act=login"><i class="iconfont">Œ</i>登 录</a> <a href="user.php?act=register">注册</a>
+{/if}
