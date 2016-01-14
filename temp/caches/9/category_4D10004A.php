@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:7:{i:0;s:44:"D:/WWW/ecshop/themes/yunchaoshi/category.dwt";i:1;s:55:"D:/WWW/ecshop/themes/yunchaoshi/library/page_header.lbi";i:2;s:51:"D:/WWW/ecshop/themes/yunchaoshi/library/ur_here.lbi";i:3;s:58:"D:/WWW/ecshop/themes/yunchaoshi/library/top10_category.lbi";i:4;s:54:"D:/WWW/ecshop/themes/yunchaoshi/library/goods_list.lbi";i:5;s:49:"D:/WWW/ecshop/themes/yunchaoshi/library/pages.lbi";i:6;s:55:"D:/WWW/ecshop/themes/yunchaoshi/library/page_footer.lbi";}s:7:"expires";i:1452583829;s:8:"maketime";i:1452580229;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:7:{i:0;s:49:"D:/WWW/shop/ecshop/themes/yunchaoshi/category.dwt";i:1;s:60:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/page_header.lbi";i:2;s:56:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/ur_here.lbi";i:3;s:63:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/top10_category.lbi";i:4;s:59:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/goods_list.lbi";i:5;s:54:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/pages.lbi";i:6;s:60:"D:/WWW/shop/ecshop/themes/yunchaoshi/library/page_footer.lbi";}s:7:"expires";i:1452756962;s:8:"maketime";i:1452753362;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -485,7 +485,7 @@ var btn_buy = "购买";
 var is_cancel = "取消";
 var select_spe = "请选择商品属性";
 </script> 
-  <form name="selectPageForm" action="/ecshop/category.php" method="get">
+  <form name="selectPageForm" action="/shop/ecshop/category.php" method="get">
      
     
     

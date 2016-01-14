@@ -1024,7 +1024,7 @@ var NALA = NALA || {};
             if (NALA.isPhone) {
                 return;
             }
-            HTML = '<div class="tb_box" id="J_toolbar"><ul class="tb_bd"><li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA0MjIzN181OTY5N184MDAwNDIyMzdfMl8" class="kefu" target="_blank"><p><img src="http://cdn.lizi.com/images/kong.gif" /><span>在线客服</span></p></a></li><li><a href="javascript:;" class="back2top"><p><img src="http://cdn.lizi.com/images/kong.gif" /><span>返回顶部</span></p></a></li></ul></div>';
+            HTML = '<div class="tb_box" id="J_toolbar"><ul class="tb_bd"><li><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA0MjIzN181OTY5N184MDAwNDIyMzdfMl8" class="kefu" target="_blank"><p><img src="http://cdn.lizi.com/images/kong.gif" /><span>在线客服</span></p></a></li><li><a href="javascript:;" class="back2top"><p><img src="http://cdn.lizi.com/images/kong.gif" /><span></span></p></a></li></ul></div>';
             c = a(HTML).appendTo("body");
             c.on("click", "a.back2top", function() {
                 a("body,html").animate({

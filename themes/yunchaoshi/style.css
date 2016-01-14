@@ -1020,7 +1020,7 @@ line-height: 22px;
 text-align: center;}
 .tb_box .tb_bd li a.a{ display:block; background:url(images/left_nav_icon.png) 0 0 no-repeat;}
 .tb_box .tb_bd li{ position:relative;}
-.tb_box .tb_bd li.shopping a.a{ height:90px; background-position: 8px 5px;}
+.tb_box .tb_bd li.shopping a.a{ height:105px; background-position: 8px 5px;}
 .tb_box .tb_bd li a.a:hover{ background-color:#F6A412;}
 
 .tb_box .tb_bd li.weixin a.a{ height:35px; background-position: 8px -195px;}
@@ -1044,7 +1044,7 @@ background-color: #393738;
 color: #fff;
 font-size: 14px;
 line-height: 20px;}
-.tb_box .tb_bd li.backtop a.a{ height:110px; background-position:8px -358px;}
+.tb_box .tb_bd li.backtop a.a{ height:125px; background-position:8px -365px;}
 i.icon_tags {
 	display: block;  
 	position: absolute;
