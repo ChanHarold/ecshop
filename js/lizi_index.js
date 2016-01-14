@@ -24,7 +24,7 @@ $(function(){
 		var that=this;
 		this.model.eq(0).show();
 		this.li.eq(0).addClass("active");
-		this.li.on(that.method,function(){
+		this.li.mouseover(that.method,function(){
 			var index=that.li.index(this);
 			that.li.removeClass("active");
 			that.li.eq(index).addClass("active");
