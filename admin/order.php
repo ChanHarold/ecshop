@@ -4998,7 +4998,7 @@ function order_list()
 
         $filter['start_time'] = empty($_REQUEST['start_time']) ? '' : (strpos($_REQUEST['start_time'], '-') > 0 ?  local_strtotime($_REQUEST['start_time']) : $_REQUEST['start_time']);
         $filter['end_time'] = empty($_REQUEST['end_time']) ? '' : (strpos($_REQUEST['end_time'], '-') > 0 ?  local_strtotime($_REQUEST['end_time']) : $_REQUEST['end_time']);
-
+        $filter['referer'] = empty($_REQUEST['referer']) ? '' : trim($_REQUEST['referer']);
         $where = 'WHERE 1 ';
         if ($filter['order_sn'])
         {
@@ -5079,6 +5079,8 @@ function order_list()
         if ($filter['end_time'])
         {
             $where .= " AND o.add_time <= '$filter[end_time]'";
+        }if($filter['referer']){
+            $where .= " AND o.referer = '$filter[referer]'";
         }
 
         //综合状态
@@ -5160,7 +5162,7 @@ function order_list()
         $filter['page_count']     = $filter['record_count'] > 0 ? ceil($filter['record_count'] / $filter['page_size']) : 1;
 
         /* 查询 */
-        $sql = "SELECT o.order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
+        $sql = "SELECT o.referer, o.order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid," .
                     "o.pay_status, o.consignee, o.address, o.email, o.tel, o.extension_code, o.extension_id, " .
                     "(" . order_amount_field('o.') . ") AS total_fee, " .
                     "IFNULL(u.user_name, '" .$GLOBALS['_LANG']['anonymous']. "') AS buyer ".
@@ -5169,7 +5171,7 @@ function order_list()
                 " ORDER BY $filter[sort_by] $filter[sort_order] ".
                 " LIMIT " . ($filter['page'] - 1) * $filter['page_size'] . ",$filter[page_size]";
 
-        foreach (array('order_sn', 'consignee', 'email', 'address', 'zipcode', 'tel', 'user_name') AS $val)
+        foreach (array('order_sn', 'consignee', 'email', 'address', 'zipcode', 'tel', 'user_name','referer') AS $val)
         {
             $filter[$val] = stripslashes($filter[$val]);
         }
@@ -5186,6 +5188,7 @@ function order_list()
     /* 格式话数据 */
     foreach ($row AS $key => $value)
     {
+        //$row[$key]['referer']=$val['referer'];
         $row[$key]['formated_order_amount'] = price_format($value['order_amount']);
         $row[$key]['formated_money_paid'] = price_format($value['money_paid']);
         $row[$key]['formated_total_fee'] = price_format($value['total_fee']);

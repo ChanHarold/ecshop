@@ -17,7 +17,7 @@
 $_LANG['order_sn'] = '订单号';
 $_LANG['consignee'] = '收货人';
 $_LANG['all_status'] = '订单状态';
-
+$_LANG['referer']='来源';
 $_LANG['cs'][OS_UNCONFIRMED] = '待确认';
 $_LANG['cs'][CS_AWAIT_PAY] = '待付款';
 $_LANG['cs'][CS_AWAIT_SHIP] = '待发货';
