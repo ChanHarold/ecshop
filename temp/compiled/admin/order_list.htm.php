@@ -33,6 +33,7 @@
     <th><a href="javascript:listTable.sort('consignee', 'DESC'); "><?php echo $this->_var['lang']['consignee']; ?></a><?php echo $this->_var['sort_consignee']; ?></th>
     <th><a href="javascript:listTable.sort('total_fee', 'DESC'); "><?php echo $this->_var['lang']['total_fee']; ?></a><?php echo $this->_var['sort_total_fee']; ?></th>
     <th><a href="javascript:listTable.sort('order_amount', 'DESC'); "><?php echo $this->_var['lang']['order_amount']; ?></a><?php echo $this->_var['sort_order_amount']; ?></th>
+      <th><a href="javascript:listTable.sort('referer', 'DESC'); "><?php echo $this->_var['lang']['referer']; ?></a><?php echo $this->_var['sort_order_amount']; ?></th>
     <th><?php echo $this->_var['lang']['all_status']; ?></th>
     <th><?php echo $this->_var['lang']['handler']; ?></th>
   <tr>
@@ -45,6 +46,7 @@
     <td align="left" valign="top"><a href="mailto:<?php echo $this->_var['order']['email']; ?>"> <?php echo htmlspecialchars($this->_var['order']['consignee']); ?></a><?php if ($this->_var['order']['tel']): ?> [TEL: <?php echo htmlspecialchars($this->_var['order']['tel']); ?>]<?php endif; ?> <br /><?php echo htmlspecialchars($this->_var['order']['address']); ?></td>
     <td align="right" valign="top" nowrap="nowrap"><?php echo $this->_var['order']['formated_total_fee']; ?></td>
     <td align="right" valign="top" nowrap="nowrap"><?php echo $this->_var['order']['formated_order_amount']; ?></td>
+    <td align="right" valign="top" nowrap="nowrap"><?php echo $this->_var['order']['referer']; ?></td>
     <td align="center" valign="top" nowrap="nowrap"><?php echo $this->_var['lang']['os'][$this->_var['order']['order_status']]; ?>,<?php echo $this->_var['lang']['ps'][$this->_var['order']['pay_status']]; ?>,<?php echo $this->_var['lang']['ss'][$this->_var['order']['shipping_status']]; ?></td>
     <td align="center" valign="top"  nowrap="nowrap">
      <a href="order.php?act=info&order_id=<?php echo $this->_var['order']['order_id']; ?>"><?php echo $this->_var['lang']['detail']; ?></a>
@@ -173,19 +175,19 @@ listTable.filter.<?php echo $this->_var['key']; ?> = '<?php echo $this->_var['it
             }
         }
     }
-    listTable.listCallback = function(result, txt) 
+    listTable.listCallback = function(result, txt)
     {
-        if (result.error > 0) 
+        if (result.error > 0)
         {
             alert(result.message);
         }
-        else 
+        else
         {
-            try 
+            try
             {
                 document.getElementById('listDiv').innerHTML = result.content;
                 bind_order_event();
-                if (typeof result.filter == "object") 
+                if (typeof result.filter == "object")
                 {
                     listTable.filter = result.filter;
                 }
