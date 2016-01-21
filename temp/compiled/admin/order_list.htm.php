@@ -77,11 +77,15 @@
     <input name="print" type="submit" id="btnSubmit4" value="<?php echo $this->_var['lang']['print_order']; ?>" class="button" disabled="true" onclick="this.form.target = '_blank'" />
    <input name="daochu" type="submit" id="btnSubmit5" value="导出xml" class="button" disabled="true" onclick="this.form.target = '_blank'" />
     <input name="csv" type="submit" id="btnSubmit6" value="导出csv" class="button" disabled="true" onclick="this.form.target = '_blank'" />
+
+    <input name="imp" type="button" id="btnSubmit8" value="导入数据" class="button" disabled="true" onclick="imformat();" />
     <input name="batch" type="hidden" value="1" />
     <input name="order_id" type="hidden" value="" />
   </div>
 </form>
+
 <script language="JavaScript">
+
 listTable.recordCount = <?php echo $this->_var['record_count']; ?>;
 listTable.pageCount = <?php echo $this->_var['page_count']; ?>;
 
@@ -97,7 +101,9 @@ listTable.filter.<?php echo $this->_var['key']; ?> = '<?php echo $this->_var['it
         // 开始检查订单
         startCheckOrder();
     }
-
+   function imformat(){
+       alert(1111);
+   }
     /**
      * 搜索订单
      */

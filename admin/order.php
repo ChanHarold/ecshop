@@ -2627,7 +2627,9 @@ echo $xml;
 die;
 }
 
-
+if($_POST['imformat']=='获取导入格式'){
+    alert("获取导入格式");
+}
 
     $order_id = '';
     /* 检查权限 */
